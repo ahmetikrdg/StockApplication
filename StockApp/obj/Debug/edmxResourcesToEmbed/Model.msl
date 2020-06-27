@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StockAppModelStoreContainer" CdmEntityContainer="Db">
+    <EntitySetMapping Name="StocCard">
+      <EntityTypeMapping TypeName="StockAppModel.StocCard">
+        <MappingFragment StoreEntitySet="StocCard">
+          <ScalarProperty Name="STOKID" ColumnName="STOKID" />
+          <ScalarProperty Name="Urun" ColumnName="Urun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockMovement">
+      <EntityTypeMapping TypeName="StockAppModel.StockMovement">
+        <MappingFragment StoreEntitySet="StockMovement">
+          <ScalarProperty Name="HAREKETID" ColumnName="HAREKETID" />
+          <ScalarProperty Name="STOCKID" ColumnName="STOCKID" />
+          <ScalarProperty Name="GIRIS" ColumnName="GIRIS" />
+          <ScalarProperty Name="CIKIS" ColumnName="CIKIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="StockAppModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="StokHareket" FunctionName="StockAppModel.Store.StokHareket">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StockAppModel.StokHareket_Result">
+          <ScalarProperty Name="HAREKETID" ColumnName="HAREKETID" />
+          <ScalarProperty Name="Urun" ColumnName="Urun" />
+          <ScalarProperty Name="GIRIS" ColumnName="GIRIS" />
+          <ScalarProperty Name="CIKIS" ColumnName="CIKIS" />
+          <ScalarProperty Name="HAREKETMIKTARI" ColumnName="HAREKETMIKTARI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

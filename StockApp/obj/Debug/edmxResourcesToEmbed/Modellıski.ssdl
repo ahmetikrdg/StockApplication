@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StockAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="StocCard">
+    <Key>
+      <PropertyRef Name="STOKID" />
+    </Key>
+    <Property Name="STOKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Urun" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StockMovement">
+    <Key>
+      <PropertyRef Name="HAREKETID" />
+    </Key>
+    <Property Name="HAREKETID" Type="int" Nullable="false" />
+    <Property Name="STOCKID" Type="int" />
+    <Property Name="GIRIS" Type="smallint" />
+    <Property Name="CIKIS" Type="smallint" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_StockMovement_StocCard">
+    <End Role="StocCard" Type="Self.StocCard" Multiplicity="1" />
+    <End Role="StockMovement" Type="Self.StockMovement" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="StocCard">
+        <PropertyRef Name="STOKID" />
+      </Principal>
+      <Dependent Role="StockMovement">
+        <PropertyRef Name="HAREKETID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="StokHareket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="StockAppModelStoreContainer">
+    <EntitySet Name="StocCard" EntityType="Self.StocCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockMovement" EntityType="Self.StockMovement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_StockMovement_StocCard" Association="Self.FK_StockMovement_StocCard">
+      <End Role="StocCard" EntitySet="StocCard" />
+      <End Role="StockMovement" EntitySet="StockMovement" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

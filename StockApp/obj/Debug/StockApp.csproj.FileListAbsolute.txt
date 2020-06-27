@@ -1,0 +1,17 @@
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\StockApp.exe.config
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\StockApp.exe
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\StockApp.pdb
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\EntityFramework.dll
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\EntityFramework.xml
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.csprojAssemblyReference.cache
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.Properties.Resources.resources
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.csproj.GenerateResource.cache
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.csproj.CoreCompileInputs.cache
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.csproj.CopyComplete
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.exe
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.pdb
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.StockCard.resources
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.StockMovements.resources
+C:\Users\Ahmet Karadağ\Desktop\StockApp\StockApp\obj\Debug\StockApp.DetailStockInfo.resources

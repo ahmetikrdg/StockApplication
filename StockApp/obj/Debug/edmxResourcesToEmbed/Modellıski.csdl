@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StockAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="StocCard">
+    <Key>
+      <PropertyRef Name="STOKID" />
+    </Key>
+    <Property Name="STOKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Urun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="StockMovement" Relationship="Self.FK_StockMovement_StocCard" FromRole="StocCard" ToRole="StockMovement" />
+  </EntityType>
+  <EntityType Name="StockMovement">
+    <Key>
+      <PropertyRef Name="HAREKETID" />
+    </Key>
+    <Property Name="HAREKETID" Type="Int32" Nullable="false" />
+    <Property Name="STOCKID" Type="Int32" />
+    <Property Name="GIRIS" Type="Int16" />
+    <Property Name="CIKIS" Type="Int16" />
+    <NavigationProperty Name="StocCard" Relationship="Self.FK_StockMovement_StocCard" FromRole="StockMovement" ToRole="StocCard" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_StockMovement_StocCard">
+    <End Role="StocCard" Type="Self.StocCard" Multiplicity="1" />
+    <End Role="StockMovement" Type="Self.StockMovement" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="StocCard">
+        <PropertyRef Name="STOKID" />
+      </Principal>
+      <Dependent Role="StockMovement">
+        <PropertyRef Name="HAREKETID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="StocCard" EntityType="Self.StocCard" />
+    <EntitySet Name="StockMovement" EntityType="Self.StockMovement" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_StockMovement_StocCard" Association="Self.FK_StockMovement_StocCard">
+      <End Role="StocCard" EntitySet="StocCard" />
+      <End Role="StockMovement" EntitySet="StockMovement" />
+    </AssociationSet>
+    <FunctionImport Name="StokHareket" ReturnType="Collection(StockAppModel.StokHareket_Result)" />
+  </EntityContainer>
+  <ComplexType Name="StokHareket_Result">
+    <Property Type="Int32" Name="HAREKETID" Nullable="false" />
+    <Property Type="String" Name="Urun" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="GIRIS" Nullable="true" />
+    <Property Type="Int16" Name="CIKIS" Nullable="true" />
+    <Property Type="Int16" Name="HAREKETMIKTARI" Nullable="true" />
+  </ComplexType>
+</Schema>
